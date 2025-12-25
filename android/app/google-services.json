@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "278853616232",
+    "project_id": "unihosp-21a44",
+    "storage_bucket": "unihosp-21a44.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278853616232:android:b9041a1c3baa670acaf1dd",
+        "android_client_info": {
+          "package_name": "com.example.clinics_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy-REpqw9he4hZBmXbA-PxhG0u_ARsXbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278853616232:android:a22a89557b277d00caf1dd",
+        "android_client_info": {
+          "package_name": "com.unihosp.beni_suef"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy-REpqw9he4hZBmXbA-PxhG0u_ARsXbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

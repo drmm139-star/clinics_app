@@ -1,0 +1,36 @@
+name: Build Flutter Web
+
+# يشتغل على كل push على فرع main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # سحب الكود من المستودع
+      - uses: actions/checkout@v3
+
+      # تثبيت Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+
+      # تثبيت الحزم
+      - name: Get Dependencies
+        run: flutter pub get
+
+      # بناء نسخة الويب
+      - name: Build Web
+        run: flutter build web --release
+
+      # رفع الملفات للـ GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
