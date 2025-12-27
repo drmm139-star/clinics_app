@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/clinics_app/">
+
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lfv-zIsAAAAALTYYbPKlaV0K8m_RAighMf8WehK"></script>
+
+  <script>
+    // Helper to get reCAPTCHA token for a given action from Flutter/web UI.
+    // Usage (JS): window.getRecaptchaToken('signup').then(token => ...)
+    window.getRecaptchaToken = function(action) {
+      return new Promise(function(resolve, reject) {
+        try {
+          grecaptcha.enterprise.ready(function() {
+            grecaptcha.enterprise.execute('6Lfv-zIsAAAAALTYYbPKlaV0K8m_RAighMf8WehK', { action: action })
+              .then(function(token) {
+                resolve(token);
+              })
+              .catch(function(err) {
+
+              // Helper that posts token back via window.postMessage with an id.
+              window.getRecaptchaTokenFor = function(action, id) {
+                try {
+                  grecaptcha.enterprise.ready(function() {
+                    grecaptcha.enterprise.execute('6Lfv-zIsAAAAALTYYbPKlaV0K8m_RAighMf8WehK', { action: action })
+                      .then(function(token) {
+                        try {
+                          window.postMessage({ type: 'recaptcha', id: id, token: token }, '*');
+                        } catch (e) {
+                          // ignore
+                        }
+                      })
+                      .catch(function(err) {
+                        try {
+                          window.postMessage({ type: 'recaptcha', id: id, token: null }, '*');
+                        } catch (e) {}
+                      });
+                  });
+                } catch (e) {
+                  try { window.postMessage({ type: 'recaptcha', id: id, token: null }, '*'); } catch (_) {}
+                }
+              };
+                reject(err);
+              });
+          });
+        } catch (e) {
+          reject(e);
+        }
+      });
+    };
+  </script>
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="مستشفيات جامعة بني سويف - تطبيق إدارة العيادات">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="مستشفيات جامعة بني سويف">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>مستشفيات جامعة بني سويف</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // This is the main entry point for the Flutter web app.
+    if (!window.dartOnloadComplete) {
+      window.dartOnloadComplete = [];
+    }
+  </script>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
