@@ -1,24 +1,16 @@
 /// Environment configuration for the app
-// Shared script endpoint used by Google Apps Script backends.
-// Update this value to the project's actual endpoint if needed.
-const String apiUrl =
-    'https://script.google.com/macros/s/AKfycbwPT6h5wyhFOsPSUhrtuoaDsa-NcKywrwW7t5SkZ1RPhcku3kMNMQPZ31ckIh55lS7q/exec';
-
 class AppConfig {
   // Debug mode
   static const bool debugMode = true;
 
-  // API configuration
-  // Read API base URL from --dart-define (compile-time) or default to localhost
-  // Usage: flutter run -d chrome --dart-define=API_BASE_URL=http://localhost:3000
+  /// API configuration
+  /// Use --dart-define=API_BASE_URL=`<url>` to override at compile time
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://localhost:3000',
+    defaultValue:
+        'https://script.google.com/macros/s/AKfycbwrebl_jdue1dUGTDk46o-nqyFn3aO5_CvtQz1ytuNIzGkWYcQfBist8z6TTbOmV_nf/exec',
   );
-  // Shared script endpoint used by Google Apps Script backends.
-  // Update this value to the project's actual endpoint if needed.
-  static const String apiUrl =
-      'https://script.google.com/macros/s/AKfycbwPT6h5wyhFOsPSUhrtuoaDsa-NcKywrwW7t5SkZ1RPhcku3kMNMQPZ31ckIh55lS7q/exec';
+
   static const Duration apiTimeout = Duration(seconds: 30);
 
   // Firebase configuration
@@ -36,12 +28,8 @@ class AppConfig {
   static const String appVersion = '1.0.0';
 
   /// Check if running on production
-  static bool isProduction() {
-    return !debugMode;
-  }
+  static bool isProduction() => !debugMode;
 
   /// Check if running on development
-  static bool isDevelopment() {
-    return debugMode;
-  }
+  static bool isDevelopment() => debugMode;
 }

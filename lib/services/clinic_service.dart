@@ -4,15 +4,14 @@ import '../models/clinic_model.dart';
 import '../config/app_config.dart';
 
 class ClinicService {
-  // Using shared `apiUrl` from config with action parameter
-
   Future<List<Clinic>> fetchClinics() async {
-    final url = '$apiUrl?action=clinics';
+    final url = '${AppConfig.apiBaseUrl}?action=clinics';
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
       final decoded = jsonDecode(response.body);
       List<dynamic> jsonList;
+
       if (decoded is Map<String, dynamic> && decoded.containsKey('value')) {
         jsonList = decoded['value'];
       } else if (decoded is List) {

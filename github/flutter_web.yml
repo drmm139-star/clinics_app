@@ -1,9 +1,9 @@
-name: Flutter Web Auto Deploy
+name: Deploy Flutter Web
 
 on:
   push:
     branches:
-      - main  # كل تحديث على main هيعمل Build و Deploy
+      - main  # أو أي فرع انت عايزه
 
 jobs:
   build-and-deploy:
@@ -16,12 +16,12 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.38.2' # عدل حسب نسخة مشروعك
+          flutter-version: '3.38.2'  # عدل حسب نسخة مشروعك
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build Flutter Web
+      - name: Build web
         run: flutter build web --release
 
       - name: Deploy to GitHub Pages
@@ -30,5 +30,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/web
           publish_branch: gh-pages
-          user_name: "drmm139-star"
-          user_email: "drmm139@gmail.com"

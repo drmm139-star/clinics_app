@@ -56,7 +56,7 @@ class _AddPatientPageState extends State<AddPatientPage> {
     logger.d(data);
 
     try {
-      final request = http.Request('POST', Uri.parse(AppConfig.apiUrl))
+      final request = http.Request('POST', Uri.parse(AppConfig.apiBaseUrl))
         ..headers.addAll({"Content-Type": "application/json"})
         ..body = jsonEncode(data);
 

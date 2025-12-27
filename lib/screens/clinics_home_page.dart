@@ -14,8 +14,6 @@ class ClinicsHomePage extends StatefulWidget {
 }
 
 class _ClinicsHomePageState extends State<ClinicsHomePage> {
-  // Using shared API_URL with action parameter
-
   late Future<List<Clinic>> clinicsFuture;
   List<Clinic> displayedClinics = [];
   String searchQuery = "";
@@ -32,11 +30,13 @@ class _ClinicsHomePageState extends State<ClinicsHomePage> {
   }
 
   Future<List<Clinic>> fetchClinics() async {
-    final url = '$apiUrl?action=clinics';
+    final url = '${AppConfig.apiBaseUrl}?action=clinics';
     final response = await http.get(Uri.parse(url));
+
     if (response.statusCode == 200) {
       final decoded = jsonDecode(response.body);
       List<dynamic> jsonList;
+
       if (decoded is Map<String, dynamic> && decoded.containsKey('value')) {
         jsonList = decoded['value'];
       } else if (decoded is List) {
@@ -55,7 +55,6 @@ class _ClinicsHomePageState extends State<ClinicsHomePage> {
 
   void updateSearch(String query, List<Clinic> allClinics) {
     final filtered = allClinics.where((clinic) {
-      // البحث بالعربي أو الإنجليزي
       return clinic.name.contains(query);
     }).toList();
 
@@ -68,7 +67,7 @@ class _ClinicsHomePageState extends State<ClinicsHomePage> {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: TextDirection.rtl, // جعل الصفحة كاملة من اليمين لليسار
+      textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('العيادات الخارجية'),

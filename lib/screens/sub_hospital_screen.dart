@@ -13,7 +13,6 @@ class SubHospitalScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future<void> openMap(BuildContext context) async {
-      // Coordinates extracted from the embedded iframe
       const lat = 29.0800117;
       const lng = 31.1060567;
       final messenger = ScaffoldMessenger.of(context);
