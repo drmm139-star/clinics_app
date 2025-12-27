@@ -8,7 +8,7 @@ class AppConfig {
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
     defaultValue:
-        'https://script.google.com/macros/s/AKfycbwrebl_jdue1dUGTDk46o-nqyFn3aO5_CvtQz1ytuNIzGkWYcQfBist8z6TTbOmV_nf/exec',
+        'https://script.google.com/macros/s/AKfycbyh3zIHopoJpLN83J_TSQTbH9tnlulBxkVJW3ZtD3rbrsWTMm_STFUN170_GNBklTij/exec',
   );
 
   static const Duration apiTimeout = Duration(seconds: 30);
