@@ -45822,7 +45822,7 @@ d=$.aKZ()
 d.Xs("Submitting patient data")
 d.VT(0,m)
 p=4
-b=A.aOO("POST",A.fp("https://script.google.com/macros/s/AKfycbyCfgCWOO_hX342KGTsCYChfiLuxqj2kQwh1s56hNahzxrQJh8KEiQVp2Q18LxaOyyt/exec",0,null))
+b=A.aOO("POST",A.fp("https://script.google.com/macros/s/AKfycbwPT6h5wyhFOsPSUhrtuoaDsa-NcKywrwW7t5SkZ1RPhcku3kMNMQPZ31ckIh55lS7q/exec",0,null))
 b.r.a_(0,A.aA(["Content-Type","application/json"],c,c))
 b.sV3(0,B.c0.IG(m,null))
 l=b
@@ -46148,7 +46148,7 @@ s.bZ(new A.awq(r),t.P)},
 Az(){var s=0,r=A.K(t.IP),q,p,o,n,m
 var $async$Az=A.L(function(a,b){if(a===1)return A.H(b,r)
 for(;;)switch(s){case 0:s=3
-return A.P(A.b73(A.fp("https://script.google.com/macros/s/AKfycbyCfgCWOO_hX342KGTsCYChfiLuxqj2kQwh1s56hNahzxrQJh8KEiQVp2Q18LxaOyyt/exec?action=clinics",0,null)),$async$Az)
+return A.P(A.b73(A.fp("https://script.google.com/macros/s/AKfycbwPT6h5wyhFOsPSUhrtuoaDsa-NcKywrwW7t5SkZ1RPhcku3kMNMQPZ31ckIh55lS7q/exec?action=clinics",0,null)),$async$Az)
 case 3:m=b
 if(m.b===200){p=B.c0.Af(0,A.a7K(A.a7t(m.e)).eN(0,m.w),null)
 if(t.a.b(p)&&J.ne(p,"value"))o=J.bc(p,"value")
