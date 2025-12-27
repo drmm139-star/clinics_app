@@ -1,20 +1,22 @@
-name: Build & Deploy Flutter Web
+name: Flutter Web Auto Deploy
 
 on:
   push:
     branches:
-      - main
+      - main  # كل تحديث على main هيعمل Build و Deploy
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.38.2'
+          flutter-version: '3.38.2' # عدل حسب نسخة مشروعك
 
       - name: Install dependencies
         run: flutter pub get
@@ -23,9 +25,10 @@ jobs:
         run: flutter build web --release
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/web
-          destination_branch: gh-pages
-
+          publish_dir: ./build/web
+          publish_branch: gh-pages
+          user_name: "drmm139-star"
+          user_email: "drmm139@gmail.com"
