@@ -162,7 +162,7 @@ class _AddPatientPageState extends State<AddPatientPage> {
                 const SizedBox(height: 16),
 
                 DropdownButtonFormField<String>(
-                  value: selectedGender,
+                  initialValue: selectedGender,
                   decoration: const InputDecoration(
                     labelText: "النوع",
                     border: OutlineInputBorder(),

@@ -2,7 +2,7 @@
 // Shared script endpoint used by Google Apps Script backends.
 // Update this value to the project's actual endpoint if needed.
 const String apiUrl =
-    'https://script.google.com/macros/s/AKfycbzB2d5dKBfVfL9-CzyW7SCkTANriYZCF-4NI28tj3W_lCGxgZe9RJ-qTUukdCtxD71A/exec';
+    'https://script.google.com/macros/s/AKfycbyCfgCWOO_hX342KGTsCYChfiLuxqj2kQwh1s56hNahzxrQJh8KEiQVp2Q18LxaOyyt/exec';
 
 class AppConfig {
   // Debug mode
@@ -18,7 +18,7 @@ class AppConfig {
   // Shared script endpoint used by Google Apps Script backends.
   // Update this value to the project's actual endpoint if needed.
   static const String apiUrl =
-      'https://script.google.com/macros/s/AKfycbzB2d5dKBfVfL9-CzyW7SCkTANriYZCF-4NI28tj3W_lCGxgZe9RJ-qTUukdCtxD71A/exec';
+      'https://script.google.com/macros/s/AKfycbyCfgCWOO_hX342KGTsCYChfiLuxqj2kQwh1s56hNahzxrQJh8KEiQVp2Q18LxaOyyt/exec';
   static const Duration apiTimeout = Duration(seconds: 30);
 
   // Firebase configuration
